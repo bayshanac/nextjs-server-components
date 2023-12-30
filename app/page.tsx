@@ -1,6 +1,6 @@
-import { AddProductComponent } from "@/components/AddProductComponent";
-import { ProductType } from "@/typings";
 
+import { AddProductComponent } from "@/components/addProductComponent";
+import { ProductType } from "@/components/addProductComponent/model";
 export default async function Home() {
   const res = await fetch(
     "https://6586e161468ef171392ee908.mockapi.io/api/v1/products",
@@ -13,8 +13,6 @@ export default async function Home() {
   );
 
   const products: ProductType[] = await res.json();
-
-
 
   return (
     <main className="">

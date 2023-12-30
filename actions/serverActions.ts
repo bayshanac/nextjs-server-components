@@ -1,29 +1,33 @@
 "use server";
 
+import { ProductSchema } from "@/components/addProductComponent/model";
+import { getErrorMessage } from "@/lib/utils";
 import { revalidateTag } from "next/cache";
 
-export const addProduct = async (formDate: FormData) => {
-  const name = formDate.get("name")?.toString();
-  const price = formDate.get("price")?.toString();
-
-  if (!name || !price) return;
-
-  const newProduct = {
-    name,
-    price,
-  };
-
+export const addProduct = async (newProduct: unknown) => {
   try {
-    await fetch("https://6586e161468ef171392ee908.mockapi.io/api/v1/products", {
+    const result = ProductSchema.safeParse(newProduct);
+    if (!result.success) {
+      let errorMessage = "";
+  
+      result.error.issues.forEach((issue) => {
+        errorMessage += `${issue.path[0]}: ${issue.message}\n`;
+      });
+  
+      throw new Error(errorMessage);
+    }
+
+    await fetch("https://6586e161468ef171392ee908.mockapi.io/api/v1/products2", {
       method: "POST",
-      body: JSON.stringify(newProduct),
+      body: JSON.stringify(result.data),
       headers: {
         "Content-Type": "application/json",
       },
     });
   } catch (error) {
-    console.log(error);
-    return { error };
+    return {
+      error: getErrorMessage(error),
+    };
   }
 
   revalidateTag("products");
