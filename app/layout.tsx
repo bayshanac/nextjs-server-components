@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { Toaster } from 'react-hot-toast'
+import Header from '@/components/Header'
 
 
 export const metadata: Metadata = {
@@ -16,7 +17,10 @@ export default function RootLayout({
   return (
     <html lang="en" data-gr-installed="true">
       <body suppressHydrationWarning={true}>
+        <Header />
+
         {children}
+        
         <Toaster position="top-right" />
       </body>
     </html>
