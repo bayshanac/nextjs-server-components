@@ -13,7 +13,6 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { title } from "process";
 
 type NavigationMenuItem = {
   title: string;
@@ -25,6 +24,24 @@ const mainmenu: NavigationMenuItem[] = [
   {
     title: "Mentori",
     href: "/mentori",
+    subitems: [
+      {
+        title: "Pokreni znanje",
+        href: "/pokreni-znanje",
+      },
+      {
+        title: "Mentorski razgovori",
+        href: "/mentorski-razgovori",
+      },
+      {
+        title: "Maser class",
+        href: "/master-class",
+      },
+      {
+        title: "Video edukacije",
+        href: "/video-edukacije",
+      },
+    ],
   },
   {
     title: "Blog",
@@ -55,6 +72,24 @@ const mainmenu: NavigationMenuItem[] = [
   {
     title: "Kontakt",
     href: "/kontakt",
+    subitems: [
+      {
+        title: "Pokreni znanje",
+        href: "/pokreni-znanje",
+      },
+      {
+        title: "Mentorski razgovori",
+        href: "/mentorski-razgovori",
+      },
+      {
+        title: "Maser class",
+        href: "/master-class",
+      },
+      {
+        title: "Video edukacije",
+        href: "/video-edukacije",
+      },
+    ],
   },
 ];
 
@@ -106,7 +141,7 @@ export function Navigation() {
               <>
                 <NavigationMenuTrigger>Components</NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid w-[200px] gap-3 p-4">
+                  <ul className="grid w-[430px] gap-3 p-4">
                     {item.subitems.map((component) => (
                       <ListItem
                         key={component.title}
@@ -137,18 +172,19 @@ const ListItem = React.forwardRef<
 >(({ className, title, ...props }, ref) => {
   return (
     <li>
-      <NavigationMenuLink asChild>
-        <a
-          ref={ref}
-          className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-            className
-          )}
-          {...props}
-        >
+      <Link
+        ref={ref}
+        className={cn(
+          "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+          className
+        )}
+        href={props.href ?? "#"}
+        {...props}
+      >
+        <NavigationMenuLink asChild>
           <div className="text-sm font-medium leading-none">{title}</div>
-        </a>
-      </NavigationMenuLink>
+        </NavigationMenuLink>
+      </Link>
     </li>
   );
 });
