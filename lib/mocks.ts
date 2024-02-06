@@ -1,3 +1,4 @@
+import { NavigationMenuItem } from "@/components/Navigation";
 import { Slide } from "@/components/Slider";
 
 export const slides: Slide[] = [
@@ -20,3 +21,76 @@ export const slides: Slide[] = [
     button1Link: "#"
   }
 ]
+
+export const mainmenu: NavigationMenuItem[] = [
+  {
+    title: "Mentori",
+    href: "/mentori",
+    subitems: [
+      {
+        title: "Pokreni znanje",
+        href: "/pokreni-znanje",
+      },
+      {
+        title: "Mentorski razgovori",
+        href: "/mentorski-razgovori",
+      },
+      {
+        title: "Maser class",
+        href: "/master-class",
+      },
+      {
+        title: "Video edukacije",
+        href: "/video-edukacije",
+      },
+    ],
+  },
+  {
+    title: "Blog",
+    href: "/warehouse",
+  },
+  {
+    title: "Edukacije",
+    href: "/edukacije",
+    subitems: [
+      {
+        title: "Pokreni znanje",
+        href: "/pokreni-znanje",
+      },
+      {
+        title: "Mentorski razgovori",
+        href: "/mentorski-razgovori",
+      },
+      {
+        title: "Maser class",
+        href: "/master-class",
+      },
+      {
+        title: "Video edukacije",
+        href: "/video-edukacije",
+      },
+    ],
+  },
+  {
+    title: "Kontakt",
+    href: "/kontakt",
+    subitems: [
+      {
+        title: "Pokreni znanje",
+        href: "/pokreni-znanje",
+      },
+      {
+        title: "Mentorski razgovori",
+        href: "/mentorski-razgovori",
+      },
+      {
+        title: "Maser class",
+        href: "/master-class",
+      },
+      {
+        title: "Video edukacije",
+        href: "/video-edukacije",
+      },
+    ],
+  },
+];

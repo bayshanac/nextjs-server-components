@@ -60,19 +60,19 @@ function Slider({ slides }: SliderProps) {
               <div className="absolute flex flex-col justify-center h-full container left-1/2 transform -translate-x-1/2">
                 {slide.title ? (
                   <h2
-                    className="text-white text-8xl font-bold mb-12 w-fit"
+                    className="text-white text-4xl lg:text-8xl font-bold mb-6 lg:mb-12 w-fit"
                     dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(slide.title) }}
                   />
                 ) : null}
                 {slide.subtitle ? (
                   <span
-                    className="text-white text-4xl font-bold mb-12 w-fit"
+                    className="text-white text-2xl lg:text-4xl font-bold mb-6 lg:mb-12 w-fit"
                     dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(slide.subtitle) }}
                   />
                 ) : null}
                 {slide.button1Label ? (
                   <Link
-                    className="w-fit bg-primary hover:bg-primary/90 text-white text-3xl rounded-md px-8 py-6"
+                    className="w-fit bg-primary hover:bg-primary/90 text-white text-xl lg:text-3xl rounded-md px-6 lg:px-8 py-4 lg:py-6"
                     href={slide.button1Link ?? "#"}
                   >
                     {slide.button1Label}

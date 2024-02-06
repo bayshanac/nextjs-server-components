@@ -2,10 +2,6 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { Toaster } from 'react-hot-toast'
 import Header from '@/components/Header'
-import Body from '@/components/Body'
-import Slider from '@/components/Slider'
-import { slides } from '@/lib/mocks'
-
 
 export const metadata: Metadata = {
   title: 'NextJS 14 server actions',
@@ -22,11 +18,7 @@ export default function RootLayout({
       <body suppressHydrationWarning={true}>
         <Header />
 
-        <Slider slides={slides} />
-
-        <Body>
-          {children}
-        </Body>
+        {children}
 
         <Toaster position="top-right" />
       </body>

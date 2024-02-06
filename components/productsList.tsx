@@ -1,4 +1,4 @@
-import { ProductType } from "@/typings";
+import { ProductType } from "./addProductComponent/model";
 
 type ProductsListProps = {
   products: ProductType[];
@@ -10,9 +10,9 @@ export function ProductsList({ products }: ProductsListProps) {
       <h2 className="font-bold p-5">List of Products</h2>
       <div className="flex flex-wrap gap-5">
         {products.map((product) => (
-          <div key={product.id} className="p-5 shadow">
-            <p className="bold">{product.name}</p>
-            <p>${product.price}</p>
+          <div key={product.id} className="p-5 shadow bg-primary">
+            <p className="bold text-white">{product.name}</p>
+            <p className="text-white">${product.price}</p>
           </div>
         ))}
       </div>
