@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['localhost', 'homepageacademy.rs'],
+    domains: ['localhost', 'homepageacademy.rs', 'coca-colapodrskamladima.com'],
   },
 }
 

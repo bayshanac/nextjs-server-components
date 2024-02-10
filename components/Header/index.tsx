@@ -16,7 +16,7 @@ function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header>
+    <header className="fixed z-50 w-full top-0">
       <nav className="bg-white border-gray-200 py-4 shadow-sm">
         <div className="flex flex-wrap justify-between items-center container">
           <div className="flex lg:flex-1">
@@ -61,7 +61,7 @@ function Header() {
                   <ul>
                     {mainmenu.map((item) => (
                       <li key={item.title}>
-                        {item.subitems ? (
+                        {item?.subitems ? (
                           <Disclosure>
                             {({ open }) => (
                               <>
@@ -80,7 +80,7 @@ function Header() {
 
                                 <Disclosure.Panel>
                                   <ul>
-                                    {item.subitems.map(
+                                    {(item?.subitems ?? []).map(
                                       (subitem: NavigationMenuItem) => (
                                         <li key={subitem.title}>
                                           <Link

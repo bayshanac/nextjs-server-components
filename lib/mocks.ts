@@ -1,4 +1,5 @@
-import { NavigationMenuItem } from "@/components/Navigation";
+
+import { NavigationMenuItem } from "@/components/MainNavigation";
 import { Slide } from "@/components/Slider";
 
 export const slides: Slide[] = [
